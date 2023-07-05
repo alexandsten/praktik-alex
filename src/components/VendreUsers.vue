@@ -1,4 +1,5 @@
 <script setup>
+
 import { ref, onMounted } from 'vue';
 
 defineProps({
@@ -14,7 +15,10 @@ onMounted(async () => {
   try {
     const response = await fetch('https://reqres.in/api/users');
     const data = await response.json();
-    users.value = data.data;
+    users.value = data.data.map(user => ({
+      ...user,
+      avatar: user.avatar
+    }));
   } catch (error) {
     console.error(error);
   }
@@ -30,11 +34,15 @@ onMounted(async () => {
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
     <ul v-if="users.length > 0">
-      <li v-for="user in users" :key="user.id">{{ user.first_name }} {{ user.last_name }}</li>
+      <li v-for="user in users" :key="user.id">
+        <img :src="user.avatar" :alt="'avatar ' + user.id">
+        {{ user.first_name }} {{ user.last_name }} {{ user.email }}
+      </li>
     </ul>
     <p v-else>Loading...</p>
   </div>
 </template>
+
 
 <style scoped>
 h1 {
