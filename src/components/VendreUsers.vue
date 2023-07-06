@@ -1,19 +1,14 @@
 <script setup>
+import { ref, onMounted, defineProps } from 'vue';
 
-import { ref, onMounted } from 'vue';
-
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-});
+const props = defineProps(['msg'])
 
 const users = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://reqres.in/api/users');
+    const response = await fetch(props.msg);
+    console.log(props.msg)
     const data = await response.json();
     users.value = data.data.map(user => ({
       ...user,
@@ -39,6 +34,7 @@ onMounted(async () => {
         {{ user.first_name }} {{ user.last_name }} {{ user.email }}
       </li>
     </ul>
+   
     <p v-else>Loading...</p>
   </div>
 </template>
