@@ -1,16 +1,12 @@
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
+  <main>
+    <component v-if="showVendreUsers" :is="VendreUsers" api="https://reqres.in/api/users" />
+    <component v-if="showVendreUsers2" :is="VendreUsers" api="https://reqres.in/api/users?page=2" />
     <div class="wrapper">
       <button @click="startVendreUsers">Page 1</button>
       <button @click="startVendreUsers2">Page 2</button>
     </div>
-  </header>
-
-  <main>
-    <component v-if="showVendreUsers" :is="VendreUsers" msg="https://reqres.in/api/users" />
-    <component v-if="showVendreUsers2" :is="VendreUsers" msg="https://reqres.in/api/users?page=2" />
   </main>
 </template>
 

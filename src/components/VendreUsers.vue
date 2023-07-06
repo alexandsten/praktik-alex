@@ -1,14 +1,14 @@
 <script setup>
 import { ref, onMounted, defineProps } from 'vue';
 
-const props = defineProps(['msg'])
+const props = defineProps(['api'])
 
 const users = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(props.msg);
-    console.log(props.msg)
+    const response = await fetch(props.api);
+    console.log(props.api)
     const data = await response.json();
     users.value = data.data.map(user => ({
       ...user,
@@ -21,15 +21,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3 v-if="users.length > 0">
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
-    <ul v-if="users.length > 0">
-      <li v-for="user in users" :key="user.id">
+  <div class="userList">
+    <ul v-if="users.length > 0" class="userList__row">
+      <li v-for="user in users" :key="user.id" class="userList__item">
         <img :src="user.avatar" :alt="'avatar ' + user.id">
         {{ user.first_name }} {{ user.last_name }} {{ user.email }}
       </li>
@@ -52,14 +46,33 @@ h3 {
   font-size: 1.2rem;
 }
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
+.userList {
+  width: 100vw; 
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
+.userList__row {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-content: center;
+}
+
+.userList__item {
+  flex: 0 0 calc(33.33% - 10px); 
+  margin-bottom: 20px; 
+}
+
+@media (max-width: 1024px) {
+  .userList__item {
+    flex: 0 0 calc(50% - 10px); 
+  }
+  
+  .userList h1,
+  .userList h3 {
     text-align: left;
   }
 }
