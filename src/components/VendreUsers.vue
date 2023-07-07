@@ -24,7 +24,7 @@ onMounted(async () => {
   <div class="userList">
     <ul v-if="users.length > 0" class="userList__row">
       <li v-for="user in users" :key="user.id" class="userList__item">
-        <img :src="user.avatar" :alt="'avatar ' + user.id">
+        <img :src="user.avatar" :alt="'avatar ' + user.id" class="vendreAvatar">
         <div> 
           {{ user.first_name }} {{ user.last_name }}
         </div>
@@ -49,24 +49,35 @@ onMounted(async () => {
 
 /* Adjust the width and height of userList__row and userList__item as needed */
 .userList__row {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  margin-top: 20px; /* Add margin between userList__row and userList */
+  margin-top: 20px; 
+  
 }
 
 .userList__item {
-  width: 200px;
+  width: 170px;
   margin: 10px;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
   background-color: grey;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.vendreAvatar {
+  border-radius: 50%;
 }
 
 /* Add media queries to adjust the layout for smaller screens */
 @media (max-width: 1024px) {
   .userList__item {
-    flex: 0 0 calc(20%);
+    
   }
 
   .userList h1,

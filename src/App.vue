@@ -37,12 +37,22 @@ const startVendreUsers2 = () => {
 
 
 .users {
-  width: 100%;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin-left: 7%;
+}
 
+.users button {
+  width: 120px;
+  height: 30px;
 }
 
 
-@media (min-width: 1024px) {
-
+@media (max-width: 640px) {
+  .users button {
+  width: 80px;
+  height: 20px;
+}
 }
 </style>
