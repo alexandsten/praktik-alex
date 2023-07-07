@@ -25,7 +25,10 @@ onMounted(async () => {
     <ul v-if="users.length > 0" class="userList__row">
       <li v-for="user in users" :key="user.id" class="userList__item">
         <img :src="user.avatar" :alt="'avatar ' + user.id">
-        {{ user.first_name }} {{ user.last_name }} {{ user.email }}
+        <div> 
+          {{ user.first_name }} {{ user.last_name }}
+        </div>
+        <div> {{ user.email }}</div>
       </li>
     </ul>
    
@@ -35,42 +38,36 @@ onMounted(async () => {
 
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
 .userList {
-  width: 100vw; 
-  height: 100vh; 
+  width: 100%;
+  height: 90vh; /* Make userList cover the entire viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row; /* Center the content vertically */
 }
 
+/* Adjust the width and height of userList__row and userList__item as needed */
 .userList__row {
+  width: 90%;
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+  margin-top: 20px; /* Add margin between userList__row and userList */
 }
 
 .userList__item {
-  flex: 0 0 calc(33.33% - 10px); 
-  margin-bottom: 20px; 
+  flex: 0 0 calc(16%); /* Adjust the width and margin as needed */
+  margin: 4px;
 }
 
+/* Add media queries to adjust the layout for smaller screens */
 @media (max-width: 1024px) {
   .userList__item {
-    flex: 0 0 calc(50% - 10px); 
+    flex: 0 0 calc(20%);
   }
-  
+
   .userList h1,
   .userList h3 {
     text-align: left;
