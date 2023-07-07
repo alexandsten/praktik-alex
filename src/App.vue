@@ -1,12 +1,13 @@
 <template>
 
   <main>
-    <component v-if="showVendreUsers" :is="VendreUsers" api="https://reqres.in/api/users" />
-    <component v-if="showVendreUsers2" :is="VendreUsers" api="https://reqres.in/api/users?page=2" />
     <div class="users">
       <button @click="startVendreUsers">Page 1</button>
       <button @click="startVendreUsers2">Page 2</button>
     </div>
+    <component v-if="showVendreUsers" :is="VendreUsers" api="https://reqres.in/api/users" />
+    <component v-if="showVendreUsers2" :is="VendreUsers" api="https://reqres.in/api/users?page=2" />
+
   </main>
 </template>
 
@@ -38,9 +39,9 @@ const startVendreUsers2 = () => {
 
 .users {
   display: flex; 
-  justify-content: center; 
+  justify-content: end; 
   align-items: center; 
-  margin-left: 7%;
+  margin-right: 7%;
 }
 
 .users button {
