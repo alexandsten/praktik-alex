@@ -28,7 +28,7 @@ onMounted(async () => {
         <div> 
           {{ user.first_name }} {{ user.last_name }}
         </div>
-        <div> {{ user.email }}</div>
+          <a :href="`mailto:${user.email}`">Contact</a>
       </li>
     </ul>
    
@@ -58,8 +58,9 @@ onMounted(async () => {
 }
 
 .userList__item {
-  flex: 0 0 calc(16%); /* Adjust the width and margin as needed */
-  margin: 4px;
+  width: 200px;
+  margin: 10px;
+  background-color: grey;
 }
 
 /* Add media queries to adjust the layout for smaller screens */
