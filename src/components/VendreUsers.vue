@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const props = defineProps(['api'])
 
@@ -8,7 +8,6 @@ const users = ref([]);
 onMounted(async () => {
   try {
     const response = await fetch(props.api);
-    console.log(props.api)
     const data = await response.json();
     users.value = data.data.map(user => ({
       ...user,
