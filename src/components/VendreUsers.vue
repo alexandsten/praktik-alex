@@ -26,28 +26,29 @@ onMounted(async () => {
       <li v-for="user in users" :key="user.id" class="userList__item">
         <img :src="user.avatar" :alt="'avatar ' + user.id" class="vendreAvatar">
         <div> 
-          {{ user.first_name }} {{ user.last_name }}
+          <p>{{ user.first_name }} {{ user.last_name }}</p>
         </div>
           <a :href="`mailto:${user.email}`">Contact</a>
       </li>
     </ul>
-   
-    <p v-else>Loading...</p>
+    <p v-else>Laddar</p>
   </div>
 </template>
 
 
 <style scoped>
 .userList {
+  font-family: sans-serif;
   width: 100%;
-  height: 90vh; /* Make userList cover the entire viewport height */
+  height: 90vh; 
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row; /* Center the content vertically */
+  flex-direction: row; 
+  margin-top: 25px;
+  padding-top: 45px;
 }
 
-/* Adjust the width and height of userList__row and userList__item as needed */
 .userList__row {
   width: 100%;
   display: flex;
@@ -55,7 +56,6 @@ onMounted(async () => {
   justify-content: center;
   align-content: center;
   margin-top: 20px; 
-  
 }
 
 .userList__item {
@@ -65,24 +65,34 @@ onMounted(async () => {
   flex-direction: column; 
   justify-content: center; 
   align-items: center; 
-  background-color: grey;
+  background-color: rgb(218, 216, 216);
   border-radius: 5px;
   padding: 8px;
+  box-shadow: 3px 3px  rgb(167, 167, 167);
 }
 
 .vendreAvatar {
   border-radius: 50%;
+  margin: 12px 0px;
 }
 
-/* Add media queries to adjust the layout for smaller screens */
 @media (max-width: 1024px) {
-  .userList__item {
-    
-  }
 
   .userList h1,
   .userList h3 {
     text-align: left;
+  }
+}
+
+@media (max-width: 720px) {
+  .userList {
+      padding-top: 75px;
+  }
+}
+
+@media (max-width: 450px) {
+  .userList {
+      padding-top: 130%;
   }
 }
 </style>
