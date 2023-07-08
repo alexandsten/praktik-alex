@@ -34,10 +34,6 @@ const startVendreUsers2 = () => {
 
 <style scoped>
 
-main {
-    background-color: rgb(248, 246, 237);
-}
-
 .users {
   display: flex; 
   justify-content: end; 
