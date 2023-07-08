@@ -1,11 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const props = defineProps(['api'])
+const props = defineProps(['api'])  // API för sida 1 eller 2, sänds från App.vue
 
-const users = ref([]);
+const users = ref([]);  // Variabel som bär på info om Vendre Anställda, hämtas från API
 
-onMounted(async () => {
+onMounted(async () => {   // API anrop
   try {
     const response = await fetch(props.api);
     const data = await response.json();
@@ -73,14 +73,6 @@ onMounted(async () => {
 .vendreAvatar {
   border-radius: 50%;
   margin: 12px 0px;
-}
-
-@media (max-width: 1024px) {
-
-  .userList h1,
-  .userList h3 {
-    text-align: left;
-  }
 }
 
 @media (max-width: 720px) {

@@ -15,7 +15,7 @@ import { ref } from 'vue';
 
 import VendreUsers from './components/VendreUsers.vue';
 
-// Pages boolean, page 1 ska visas när sidan öppnas
+// Booleans som bestämmer vilken sida som ska visas
 const showVendreUsers = ref(true);
 const showVendreUsers2 = ref(false);
 
