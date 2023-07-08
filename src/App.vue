@@ -46,7 +46,7 @@ main {
 }
 
 .users img {
-  margin-right: 20%;
+  margin-right: 21%;
 }
 
 .users button {
@@ -71,5 +71,11 @@ main {
   width: 100px;
   height: 25px;
   }
+
+  .users img {
+  width: 100px;
+  height: 35px;
+  margin-right: 10%;
+}
 }
 </style>
