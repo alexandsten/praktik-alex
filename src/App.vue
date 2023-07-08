@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="users">
-      <img src="https://vendre.se/thumb/1967/0x68/vendre-optimizers_logo-black.webp" alt="logo" width="155" height="55">
+      <img src="/vendre.jpg" alt="logo" width="155" height="55">
       <button @click="startVendreUsers">Page 1</button>
       <button @click="startVendreUsers2">Page 2</button>
     </div>
